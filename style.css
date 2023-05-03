@@ -1,0 +1,50 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#gameContainer {
+    width: fit-content;
+    margin: 1vh auto;
+}
+
+#canvas {
+    background-color: #ccc;
+    height: 96vh;
+    width: calc(96vh / 2);
+}
+
+#nextShapeCanvas {
+    width: 25vh;
+    height: 25vh;
+    position: absolute;
+    top: 10;
+}
+
+#scoreCanvas {
+    width: 25vh;
+    height: 25vh;
+    position: absolute;
+    top: calc(25vh + 20px);
+}
+
+button:hover {
+    background-color: #bca0dc !important;
+}
+button:active {
+    background-color: #9969d0 !important;
+}
+
+button {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: gray;
+    border: 0px;
+}
+
+#image {
+    display: none;
+}
