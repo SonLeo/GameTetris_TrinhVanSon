@@ -101,9 +101,9 @@ class Tetris {
             let last = n - layer -1;
             for(let j = first; j < last; j++) {
                 let offset = j - first;
-                let temp = this.template[first][i]; // temp = top
-                this.template[first][i] = this.template[i][last]; // top = right
-                this.template[i][last] = this.template[last][last - offset]; // right = bottom
+                let temp = this.template[first][j]; // temp = top
+                this.template[first][j] = this.template[j][last]; // top = right
+                this.template[j][last] = this.template[last][last - offset]; // right = bottom
                 this.template[last][last - offset] = this.template[last - offset][first]; // bottom = left
                 this.template[last - offset][first] = temp; // left = temp
             }
@@ -141,30 +141,35 @@ const sctx = scoreCanvas.getContext('2d');
 const size = canvas.width / 10;
 const shapes = [
   new Tetris(0, 0, [
-    [0, 1, 0],
-    [0, 1, 0],
-    [1, 1, 0],
+    [0, 0, 1, 0],
+    [0, 0, 1, 0],
+    [0, 1, 1, 0],
+    [0, 0, 0, 0],
   ]),
   new Tetris(0, 24, [
-    [0, 0, 0],
-    [1, 1, 1],
-    [0, 1, 0],
-  ]),
+    [0, 0, 0, 0],
+    [0, 1, 1, 1],
+    [0, 0, 1, 0],
+    [0, 0, 0, 0],
+]),
   new Tetris(0, 48, [
-    [0, 1, 0],
-    [0, 1, 0],
-    [0, 1, 1],
+    [0, 1, 0, 0],
+    [0, 1, 0, 0],
+    [0, 1, 1, 0],
+    [0, 0, 0, 0],
   ]),
   new Tetris(0, 72, [
-    [0, 0, 0],
-    [0, 1, 1],
-    [1, 1, 0],
-  ]),
+    [0, 0, 0, 0],
+    [0, 0, 1, 1],
+    [0, 1, 1, 0],
+    [0, 0, 0, 0],
+]),
   new Tetris(0, 96, [
-    [0, 0, 0],
-    [1, 1, 0],
-    [0, 1, 1],
-  ]),
+    [0, 0, 0, 0],
+    [0, 1, 1, 0],
+    [0, 0, 1, 1],
+    [0, 0, 0, 0],
+]),
   new Tetris(0, 120, [
     [0, 0, 1, 0],
     [0, 0, 1, 0],
@@ -172,8 +177,10 @@ const shapes = [
     [0, 0, 1, 0],
   ]),
   new Tetris(0, 144, [
-    [1, 1],
-    [1, 1],
+    [0, 0, 0, 0],
+    [0, 1, 1, 0],
+    [0, 1, 1, 0],
+    [0, 0, 0, 0],
   ]),
 ];
 
@@ -271,7 +278,8 @@ let drawCurrentTetris = () => {
             if(currentShape.template[i][j] == 0) {
                 continue;
             } else {
-                ctx.drawImage(image, currentShape.imageX, currentShape.imageY, imageSquareSize, imageSquareSize, Math.trunc(currentShape.x) * size + size * i, Math.trunc(currentShape.y) * size + size * j, size, size);
+                ctx.drawImage(image, currentShape.imageX, currentShape.imageY, imageSquareSize, imageSquareSize, 
+                    Math.trunc(currentShape.x) * size + size * i, Math.trunc(currentShape.y) * size + size * j, size, size);
             }
         }
     }

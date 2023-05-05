@@ -17,17 +17,17 @@
 }
 
 #nextShapeCanvas {
-    width: 25vh;
-    height: 25vh;
+    width: 24vh;
+    height: 24vh;
     position: absolute;
-    top: 10;
+    top: 10px;
 }
 
 #scoreCanvas {
-    width: 25vh;
-    height: 25vh;
+    width: 24vh;
+    height: 24vh;
     position: absolute;
-    top: calc(25vh + 20px);
+    top: calc(24vh + 20px);
 }
 
 button:hover {
