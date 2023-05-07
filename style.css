@@ -6,6 +6,7 @@
 }
 
 #gameContainer {
+    position: relative;
     width: fit-content;
     margin: 1vh auto;
 }
@@ -37,12 +38,27 @@ button:active {
     background-color: #9969d0 !important;
 }
 
-button {
+.btn {
+    position: absolute;
     width: 64px;
     height: 64px;
     border-radius: 50%;
     background-color: gray;
     border: 0px;
+    font-size: 36px;
+    color: #fff;
+    line-height: 64px;
+}
+
+.btn-start {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-reset {
+    top: calc(100% - 70px);
+    left: calc(100% + 10px);
 }
 
 #image {
